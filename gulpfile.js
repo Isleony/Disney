@@ -15,8 +15,13 @@ function styles() {
 function images() {
     return gulp.src('./src/images/**/*.{jpg,png,gif,svg,jpeg}')
         .pipe(imagemin())
+        .on('error', function(err) {
+            console.error(err);
+            this.emit('end');
+        })
         .pipe(gulp.dest('./dist/images'))
 }
+
 
 
 function scripts() {
