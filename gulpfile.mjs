@@ -1,19 +1,15 @@
 import gulp from 'gulp';
-import gulpSass from 'gulp-sass';
+import dartSass from 'gulp-dart-sass';
 import imagemin from 'gulp-imagemin';
 import uglify from 'gulp-uglify';
 import htmlmin from 'gulp-htmlmin';
-import * as sass from 'sass';
-
-// Configurando o compilador Sass
-gulpSass.compiler = sass;
 
 function styles() {
     return gulp.src('./src/styles/*.scss')
-        .pipe(gulpSass({
+        .pipe(dartSass({
             outputStyle: 'compressed',
             includePaths: ['node_modules']
-        }).on('error', gulpSass.logError))
+        }).on('error', dartSass.logError))
         .pipe(gulp.dest('./dist/css'));
 }
 
