@@ -4,6 +4,9 @@ import imagemin from 'gulp-imagemin';
 import uglify from 'gulp-uglify';
 import htmlmin from 'gulp-htmlmin';
 
+// Configurando o compilador Sass
+sass.compiler = import('sass');
+
 function styles() {
     return gulp.src('./src/styles/*.scss')
         .pipe(sass({
