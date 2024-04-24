@@ -1,18 +1,19 @@
 import gulp from 'gulp';
-import sass from 'gulp-sass';
+import gulpSass from 'gulp-sass';
 import imagemin from 'gulp-imagemin';
 import uglify from 'gulp-uglify';
 import htmlmin from 'gulp-htmlmin';
+import * as sass from 'sass';
 
 // Configurando o compilador Sass
-sass.compiler = import('sass');
+gulpSass.compiler = sass;
 
 function styles() {
     return gulp.src('./src/styles/*.scss')
-        .pipe(sass({
+        .pipe(gulpSass({
             outputStyle: 'compressed',
             includePaths: ['node_modules']
-        }).on('error', sass.logError))
+        }).on('error', gulpSass.logError))
         .pipe(gulp.dest('./dist/css'));
 }
 
