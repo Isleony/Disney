@@ -1,0 +1,3 @@
+[submodule "src/clone_disneyplugs"]
+	path = src/clone_disneyplugs
+	url = https://github.com/Isleony/clone_disneyplugs.git
